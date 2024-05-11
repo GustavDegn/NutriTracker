@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forAlle.css">
+    <link rel="stylesheet" href="activityTracker.css">
+    <title>Activity Tracker</title>
+</head>
+
+<body>
+    <div class="hoved">
+        <div class="hovedLogo">
+            <h1>NutriTracker</h1>
+            <img src="redApple.png" alt="logoApple" class="logoApple">
+        </div>
+        <div class="hovedLinks">
+            <a href="mealCreator.html">Meal Creator</a>
+            <a href="mealTracker.html">Meal Tracker</a>
+            <a href="activityTracker.html" class="active">Activity Tracker</a>
+            <a href="myProfile.html">Min Profil</a>
+            <a href="nutriDash.html" class="active">Daily Nutri</a>
+        </div>
+    </div>
+
+    <div class="activityTracker">
+        <h2>Activity Tracker</h2>
+        <form id="activityForm">
+            <input type="text" id="activityName" placeholder="Aktivitetsnavn" required>
+            <input type="number" id="activityDuration" placeholder="Længde i minutter" required>
+            <input type="button" id="calculateCalories" value="Udregn forbrændte kalorier">
+        </form>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aktivitet</th>
+                        <th>Længde (min)</th>
+                        <th>Kalorier forbrændt</th>
+                        <th>Registreringstid</th>
+                    </tr>
+                </thead>
+                <tbody id="activityList">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="bmrCalculator">
+        <h2>BMR Calculator</h2>
+        <form id="bmrForm">
+            <input type="number" id="weight" placeholder="Vægt i kg" required>
+            <input type="number" id="age" placeholder="Alder" required>
+            <select id="gender">
+                <option value="">Vælg køn</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <input type="button" id="calculateBMR" value="Beregn BMR">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Vægt (kg)</th>
+                    <th>Alder</th>
+                    <th>Køn</th>
+                    <th>BMR</th>
+                </tr>
+            </thead>
+            <tbody id="bmrResult">
+            </tbody>
+        </table>
+    </div>
+    <script src="activityTracker.js"></script>
+</body>
+</html>

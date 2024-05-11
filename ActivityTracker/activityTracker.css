@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ecf0f1;
+    line-height: 1.6;
+}
+
+.activityTracker {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.activityTracker h2 {
+    margin-bottom: 0px;
+}
+
+input[type='text'],
+input[type='number'],
+select {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+}
+
+input[type='button'] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type='button']:hover {
+    background-color: #4cae4c;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th,
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.bmrCalculator {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+.bmrCalculator h2 {
+    margin-bottom: 20px;
+}
+
+.bmrCalculator label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.bmrCalculator input,
+.bmrCalculator select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.table-header-row {
+    text-align: center;
+}
+
+.bmr-result-container {
+    background-color: #e7f4e8;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #2d862d;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.bmr-result-text {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+

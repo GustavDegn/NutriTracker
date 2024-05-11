@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forAlle.css">
+    <link rel="stylesheet" href="mealCreator.css">
+</head>
+<body>
+    <div class="hoved">
+        <div class="hovedLogo">
+            <h1>NutriTracker</h1>
+            <img src="redApple.png" alt="logoApple" class="logoApple">
+        </div>
+        <div class="hovedLinks">
+            <a href="mealCreator.html">Meal Creator</a>
+            <a href="mealTracker.html">Meal Tracker</a>
+            <a href="activityTracker.html" class="active">Activity Tracker</a>
+            <a href="myProfile.html" class="active">Min Profil</a>
+            <a href="nutriDash.html" class="active">Daily Nutri</a>
+        </div>
+    </div>
+    <div class="mealCreator">
+        <h2>Meal Creator</h2>
+        <div class="mealCreatorFunktioner">
+            <div class="inputsAndButtons">
+                <input type="text" id="MealName" name="MealName" placeholder="Måltidsnavn" required>
+                <button type="button" id="tilføjIngrediens" class="tilføjIngrediens">+</button>
+                <button type="submit" form="mealCreatorFunktioner2" class="tilføjMåltid">+</button>
+            </div>
+            <form id="mealCreatorFunktioner2">
+                <div id="ingrediensContainer"></div>
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Måltider</th>
+                    <th>Total Kalorier</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div id="måltidsListe"></div>
+    </div>
+    
+    <script src="mealCreator.js"></script>
+</body>
+</html>
+
+
+

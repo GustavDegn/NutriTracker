@@ -1,0 +1,94 @@
+.mealCreator {
+  padding: 20px;
+  border-radius: 10px;
+  margin: 50px;
+  border: 1px solid lightblue;
+}
+
+.mealCreator h2 {
+  font-family: 'Nunito', sans-serif;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.mealCreatorFunktioner, .inputsAndButtons, .mealCreator h2 {
+  text-align: left;
+}
+
+.inputsAndButtons {
+  display: flex;
+  align-items: center;
+}
+
+.buttonDelete, .buttonOverview {
+  cursor: pointer;
+  background-color: transparent; 
+  border: 1px solid black; 
+  width: 30px; 
+  height: 30px; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 5px;
+}
+
+.mealActions {
+  display: flex;
+  gap: 5px; 
+}
+
+
+#MealName{
+  padding: 8px;
+}
+
+.tilføjIngrediens {
+  padding: 10px 20px;
+  border: solid grey;
+  border-radius: 50%; 
+  background-color: #569bd5;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.tilføjMåltid {
+  padding: 10px 20px;
+  border: solid grey;
+  border-radius: 50%; 
+  background-color: #91C789; 
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  color: #616161;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.oprettedeMåltider {
+  background-color: #DEF6D8;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th:nth-child(2), td:nth-child(2) {
+  width: 90%;
+}
+
+
+
+
+
+

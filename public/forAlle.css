@@ -1,0 +1,47 @@
+body, html {
+    font-family: 'Nunito', sans-serif;
+    background: url('bølgen.png'); 
+    background-size: cover;
+}
+
+.hoved {
+    display: flex;
+    align-items: center;
+    background: url('bølgen.png');
+    background-size: cover;
+    padding: 30px;
+}
+
+.hovedDashboard{
+    margin-left: 70px;
+    margin-top: 110px;
+    margin-bottom: 50px;
+}
+
+.hovedLogo {
+    display: flex;
+    align-items: center;
+}
+
+.hoved h1 {
+    color: #91c789;
+    font-size: 32px;
+}
+
+.logoApple {
+    margin-left: 10px; 
+    width: 30px; 
+    height: 30px; 
+}
+
+.hovedLinks {
+    display: flex;
+    justify-content: space-around; 
+    flex: 1; 
+}
+
+.hovedLinks a {
+    text-decoration: none;
+    color: #9E9E9E;
+}
+

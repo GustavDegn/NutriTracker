@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forAlle.css">
+    <link rel="stylesheet" href="nutriDash.css">
+</head>
+
+<body>
+        <div class="hovedLogo">
+            <h1>NutriTracker</h1>
+            <img src="redApple.png" alt="logoApple" class="logoApple">
+        </div>
+        <div class="hovedLinks">
+            <a href="mealCreator.html">Meal Creator</a>
+            <a href="mealTracker.html">Meal Tracker</a>
+            <a href="activityTracker.html" class="active">Activity Tracker</a>
+            <a href="myProfile.html" class="active">Min Profil</a>
+            <a href="nutriDash.html" class="active">Daily Nutri</a>
+        </div>
+    </div>
+        <div id="dashboard">
+            <div class="card">
+                <h4>Energy Intake</h4>
+                <p id="energy-today">0 kcal</p>
+            </div>
+            <div class="card">
+                <h4>Water Intake</h4>
+                <p id="water-today">0 L</p>
+            </div>
+            <div class="card">
+                <h4>Calories Burned</h4>
+                <p id="calories-burned">0 kcal</p>
+            </div>
+            <div class="card">
+                <h4>Caloric Balance</h4>
+                <p id="caloric-balance">0 kcal</p>
+            </div>
+            <div>
+                <label for="viewType">View Type:</label>
+                <select id="viewType">
+                    <option value="daily">Daily</option>
+                    <option value="monthly">Monthly</option>
+                </select>
+            </div>
+        </div>
+        <script src="nutriDash.js"></script>
+</body>
+</html>

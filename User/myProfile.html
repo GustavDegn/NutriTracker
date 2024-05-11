@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Min Profil</title>
+    <link rel="stylesheet" href="forAlle.css">
+    <link rel="stylesheet" href="myProfile.css">
+</head>
+<body>
+    <div class="hoved">
+        <div class="hovedLogo">
+            <h1>NutriTracker</h1>
+            <img src="redApple.png" alt="logoApple" class="logoApple">
+        </div>
+        <div class="hovedLinks">
+            <a href="mealCreator.html">Meal Creator</a>
+            <a href="mealTracker.html">Meal Tracker</a>
+            <a href="activityTracker.html">Activity Tracker</a>
+            <a href="myProfile.html" class="active">Min Profil</a>
+            <a href="nutriDash.html">Daily Nutri</a>        
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <h1>Min Profil</h1>
+        <form id="profileForm">
+            <label for="weight">Vægt:</label>
+            <input type="number" id="weight" name="weight">
+
+            <label for="age">Alder:</label>
+            <input type="number" id="age" name="age">
+
+            <label for="gender">Køn:</label>
+            <select id="gender" name="gender">
+                <option value="male">Mand</option>
+                <option value="female">Kvinde</option>
+                <option value="other">Andet</option>
+            </select>
+            <button type="button" id="updateProfile">Opdater Profil</button>
+            <button type="button" id="deleteProfile" class="danger">Slet Profil</button>
+            <button type="button" id="logoutButton">Log ud</button>
+        </form>
+    </div>
+
+    <script src="myProfile.js"></script>
+</body>
+</html>

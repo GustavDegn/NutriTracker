@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forAlle.css">
+    <link rel="stylesheet" href="mealTracker.css">
+    <title>Meal Tracker</title>
+</head>
+<body>
+    <div class="hoved">
+        <div class="hovedLogo">
+            <h1>NutriTracker</h1>
+            <img src="redApple.png" alt="logoApple" class="logoApple">
+        </div>
+        <div class="hovedLinks">
+            <a href="mealCreator.html">Meal Creator</a>
+            <a href="mealTracker.html">Meal Tracker</a>
+            <a href="activityTracker.html" class="active">Activity Tracker</a>
+            <a href="myProfile.html">Min Profil</a>
+            <a href="nutriDash.html">Daily Nutri</a>
+        </div>
+    </div>
+    <div class="mealTracker">
+        <h2>Meal Tracker</h2>
+        <div class="mealTrackerFunktioner">
+            <h4>Enkel Inrgediens</h4>
+            <form id="singleIngredientForm">
+                <input list="ingredients" id="ingredient" name="ingredient" autocomplete="off" placeholder="Indtast ingrediensnavn" required>
+                <datalist id="ingredients">
+                </datalist>
+                <input type="number" id="quantity" name="weight" step="0.01" placeholder="Vægt i gram" required>
+                <input type="datetime-local" id="intakeTime" class="datetime-input">
+                <button type="submit" class="tilføjIngrediensKnap">+</button>
+            </form>
+        </div>
+        <div class="måltider">
+            <h4>Måltider</h4>
+            <select id="valgAfMåltid"></select>
+            <input type="number" id="portionWeight" placeholder="Vægt i gram">
+            <input type="datetime-local" id="consumptionTime" class="datetime-input">
+            <button onclick="opdaterMåltidsIndtag()" class="tilføjMåltidKnap">+</button>
+            <h4>Vand</h4>
+            <input type="number" id="liquidAmount" placeholder="Mængde i liter">
+            <input type="datetime-local" id="liquidIntakeTime" class="datetime-input">
+            <button onclick="opdaterVæskeIndtag()" class="tilføjVæskeKnap">+</button>
+        </div>
+        <div class="overskrift">
+            <div class="meal">Indtag, mængde og dato</div>
+            <div class="weight-energy">Ernæringsindhold</div>
+            <div class="added-on">Rediger og slet</div>
+        </div>
+        <div id="intakeDisplay">
+        </div>
+    </div>
+    <script src="mealTracker.js"></script>
+    <script src="mealCreator.js"></script>
+    <script src="singleIngredient.js"></script>
+</body>
+</html>
+
