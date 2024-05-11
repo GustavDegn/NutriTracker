@@ -13,7 +13,7 @@ import saveMealsRoutes from './shared/mealUtilsRoutes.js';
 
 // Initialiserer en Express-applikation
 const app = express();
-const port = 8000; // Definerer portnummeret, hvor serveren vil lytte
+const port = 3000; // Definerer portnummeret, hvor serveren vil lytte
 
 app.use(session({
     secret: 'secret',
