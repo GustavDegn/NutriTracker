@@ -24,17 +24,22 @@ function checkUserAuthentication() {
     // Her kan en server-side verifikation tilføjes om nødvendigt
 }
 
+// Funktion til at initialisere dato- og tidsfelter på websiden
 function initializeDateTimeFields() {
+    // Finder alle inputfelter af typen 'datetime-local' i dokumentet
     const dateTimeInputs = document.querySelectorAll('input[type="datetime-local"]');
+    // Opretter et nyt Date-objekt, der repræsenterer det nuværende tidspunkt
     const now = new Date();
-    const timeZoneOffset = now.getTimezoneOffset() * 60000; // Convert offset to milliseconds
-    const localISOTime = new Date(now - timeZoneOffset).toISOString().slice(0, 16); // Adjust for timezone
+    // Beregner tidszonen forskel i millisekunder
+    const timeZoneOffset = now.getTimezoneOffset() * 60000; // Konverterer offset til millisekunder
+    // Justerer den nuværende tid til lokal tid og konverterer til ISO-format, trimmer til dato og tid (uden sekunder)
+    const localISOTime = new Date(now - timeZoneOffset).toISOString().slice(0, 16); // Justerer for tidszone
     
+    // Løber igennem hver dato- og tidsinput og sætter dens værdi til den justerede lokale ISO-tid
     dateTimeInputs.forEach(input => {
         input.value = localISOTime;
     });
 }
-
 
 // Henter måltidsindtag fra serveren
 function fetchMeals() {
