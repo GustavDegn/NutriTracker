@@ -35,6 +35,8 @@ router.get('/water/intake', async (req, res) => {
     const startDate = req.query.startDate;  // Startdato for forespørgslen.
     const endDate = req.query.endDate;  // Slutdato for forespørgslen.
 
+    console.log(`Fetching water for user ${userId} with view type ${viewType} from ${startDate} to ${endDate}`);  // Logger detaljer
+
     if (!userId) {
         return res.status(403).send('User not logged in');  // Sender en 403 status hvis brugeren ikke er logget ind.
     }
@@ -50,6 +52,8 @@ router.get('/water/intake', async (req, res) => {
     } catch (error) {
         console.error('Error fetching water intake:', error);  // Logger en fejlmeddelelse.
         res.status(500).send('Server error');  // Sender fejlrespons.
+
+    
     }
 });
 
@@ -63,11 +67,13 @@ router.get('/calories-burned', async (req, res) => {
     const viewType = req.query.viewType || 'daily';  // Bestemmer visningstype, standard er 'daily'.
     const startDate = req.query.startDate;  // Startdato for forespørgslen.
     const endDate = req.query.endDate;  // Slutdato for forespørgslen.
+
+    console.log(`Fetching calories burned for user ${userId} with view type ${viewType} from ${startDate} to ${endDate}`);  // Logger detaljer
   
     try {
       const caloriesBurnedData = await database.getTotalCaloriesBurned(userId, startDate, endDate, viewType);
       if (caloriesBurnedData.length > 0) {
-        res.json(caloriesBurnedData);  // Sender data som JSON hvis data findes.
+        res.json({ userId, caloriesBurnedData });  // Sender data som JSON hvis data findes.
       } else {
         // Sender standarddata hvis ingen data findes.
         res.json({ userId, caloriesBurned: [{ TotalCaloriesBurned: 0 }] });
