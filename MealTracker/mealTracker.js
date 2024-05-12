@@ -402,34 +402,34 @@ function opdaterIndtag() {
             description = `<ul class="intakeDescription">
                                <li class="intakeDetail">${intake.mealName} ${intake.portionWeight}g</li>
                                <li class="intakeDetail">Date: ${formatDate(intake.consumptionTime)}</li>
-                               <li class="intakeDetail">Location: ${locationInfo}</li>
+                               <li class="intakeDetail">${locationInfo}</li>
                            </ul>`;
             details = `<div class="infoBox kcal">${intake.kcal} kcal</div>
                        <div class="infoBox protein">${intake.protein} g protein</div>
-                       <div class="infoBox fat">${intake.fat} g fat</div>
-                       <div class="infoBox fibers">${intake.fibers} g fibers</div>`;
+                       <div class="infoBox fat">${intake.fat} g fedt</div>
+                       <div class="infoBox fibers">${intake.fibers} g fibre</div>`;
             break;
         case 'water':
             description = `<ul class="intakeDescription">
                                <li class="intakeDetail">Water: ${intake.liquidAmount} liters</li>
                                <li class="intakeDetail">Date: ${formatDate(intake.consumptionTime)}</li>
-                               <li class="intakeDetail">Location: ${locationInfo}</li>
+                               <li class="intakeDetail">${locationInfo}</li>
                            </ul>`;
             details = `<div class="infoBox kcal">0 kcal</div>
-                       <div class="infoBox protein">0 g</div>
-                       <div class="infoBox fat">0 g</div>
-                       <div class="infoBox fibers">0 g</div>`;
+                       <div class="infoBox protein">0 g protein</div>
+                       <div class="infoBox fat">0 g fedt</div>
+                       <div class="infoBox fibers">0 g fibre</div>`;
             break;
         case 'ingredient':
             description = `<ul class="intakeDescription">
                                <li class="intakeDetail">${intake.ingredientName}, ${intake.quantity}g</li>
                                <li class="intakeDetail">Date: ${formatDate(intake.intakeTime)}</li>
-                               <li class="intakeDetail">Location: ${locationInfo}</li>
+                               <li class="intakeDetail">${locationInfo}</li>
                            </ul>`;
             details = `<div class="infoBox kcal">${intake.calories} kcal</div>
-                       <div class="infoBox protein">${intake.protein} g</div>
-                       <div class="infoBox fat">${intake.fat} g</div>
-                       <div class="infoBox fibers">${intake.fibers} g</div>`;
+                       <div class="infoBox protein">${intake.protein} g protein</div>
+                       <div class="infoBox fat">${intake.fat} g fedt</div>
+                       <div class="infoBox fibers">${intake.fibers} g fibre</div>`;
             break;
     }
 
