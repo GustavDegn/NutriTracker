@@ -578,7 +578,6 @@ async deleteIndividualIntake(userId, intakeId) {
   }
 }
 
-// Funktion til at hente det totale kalorieindtag inden for en bestemt periode og gruppere det baseret på visningstype
 async getCaloriesIntake(userId, startDate, endDate, viewType) {
   const pool = await this.poolPromise;
   const request = pool.request();
@@ -586,29 +585,40 @@ async getCaloriesIntake(userId, startDate, endDate, viewType) {
   request.input('StartDate', sql.DateTime2, startDate);
   request.input('EndDate', sql.DateTime2, endDate);
 
-  let groupByClause = viewType === 'monthly' ? "FORMAT(ConsumptionTime, 'yyyy-MM')" : "FORMAT(ConsumptionTime, 'yyyy-MM-dd')";
-
-  const query = `
+  let query = `
+      -- Selecting and aggregating calories from IntakeRecords
       SELECT 
-          ${groupByClause} AS Date,
-          SUM(Calories) AS TotalCalories
+          FORMAT(ConsumptionTime, 'yyyy-MM-ddTHH:mm:ss') AS DateTime,
+          SUM(Calories) AS Calories
       FROM 
           IntakeRecords
       WHERE 
           UserID = @UserId AND 
           ConsumptionTime BETWEEN @StartDate AND @EndDate
       GROUP BY 
-          ${groupByClause}
+          FORMAT(ConsumptionTime, 'yyyy-MM-ddTHH:mm:ss')
+      UNION ALL
+      -- Selecting and aggregating calories from IndividualIntakes
+      SELECT 
+          FORMAT(IntakeDateTime, 'yyyy-MM-ddTHH:mm:ss') AS DateTime,
+          SUM(Calories) AS Calories  -- Direct sum of Calories
+      FROM 
+          IndividualIntakes
+      WHERE 
+          UserID = @UserId AND 
+          IntakeDateTime BETWEEN @StartDate AND @EndDate
+      GROUP BY 
+          FORMAT(IntakeDateTime, 'yyyy-MM-ddTHH:mm:ss')
       ORDER BY 
-          Date;
+          DateTime;
   `;
 
   try {
-    const result = await request.query(query);
-    return result.recordset; // Returnerer aggregerede data
+      const result = await request.query(query);
+      return result.recordset;
   } catch (error) {
-    console.error('SQL query error:', error);
-    throw error;
+      console.error('Error fetching combined calories intake data:', error);
+      throw error;
   }
 }
 
@@ -620,65 +630,57 @@ async getTotalWaterIntake(userId, startDate, endDate, viewType) {
   request.input('StartDate', sql.DateTime2, startDate);
   request.input('EndDate', sql.DateTime2, endDate);
 
-  let groupByClause = viewType === 'monthly' ? "FORMAT(WaterDateTime, 'yyyy-MM-01')" : "FORMAT(WaterDateTime, 'yyyy-MM-dd')";
-
-  const query = `
+  let query = `
       SELECT 
-          ${groupByClause} AS Date,
-          SUM(Liter) AS TotalLiters
+          FORMAT(WaterDateTime, 'yyyy-MM-ddTHH:mm:ss') AS DateTime,
+          Liter
       FROM 
           WaterIntakes
       WHERE 
           UserID = @UserId AND 
           WaterDateTime BETWEEN @StartDate AND @EndDate
-      GROUP BY 
-          ${groupByClause}
       ORDER BY 
-          Date;
+          WaterDateTime;
   `;
 
   try {
-    const result = await request.query(query);
-    return result.recordset; // Returnerer vandindtag grupperet efter den valgte periode
+      const result = await request.query(query);
+      return result.recordset;
   } catch (error) {
-    console.error('SQL query error:', error);
-    throw error;
+      console.error('Error fetching water intake:', error);
+      throw error;
   }
 }
 
 // Funktion til at hente det totale antal forbrændte kalorier for en bruger inden for en bestemt periode og gruppere det baseret på visningstype
-async getTotalCaloriesBurned(userId, startDate, endDate, viewType = 'daily') {
+async getTotalCaloriesBurned(userId, startDate, endDate, viewType) {
   const pool = await this.poolPromise;
   const request = pool.request();
   request.input('UserId', sql.Int, userId);
   request.input('StartDate', sql.DateTime2, startDate);
   request.input('EndDate', sql.DateTime2, endDate);
 
-  let groupByClause = viewType === 'monthly' ? "FORMAT(ActivityDateTime, 'yyyy-MM')" : "CONVERT(date, ActivityDateTime)";
-
-  const query = `
-    SELECT 
-      ${groupByClause} AS Date,
-      SUM(CaloriesBurned) AS CaloriesBurned
-    FROM 
-      ActivityTracker
-    WHERE 
-      UserID = @UserId AND 
-      ActivityDateTime BETWEEN @StartDate AND @EndDate
-    GROUP BY 
-      ${groupByClause}
-    ORDER BY 
-      Date;
+  let query = `
+      SELECT 
+          FORMAT(ActivityDateTime, 'yyyy-MM-ddTHH:mm:ss') AS DateTime,
+          CaloriesBurned
+      FROM 
+          ActivityTracker
+      WHERE 
+          UserID = @UserId AND 
+          ActivityDateTime BETWEEN @StartDate AND @EndDate
+      ORDER BY 
+          ActivityDateTime;
   `;
 
   try {
-    const result = await request.query(query);
-    return result.recordset; // Returnerer en række datapunkter (kalorier forbrændt per dag eller måned)
+      const result = await request.query(query);
+      return result.recordset;
   } catch (error) {
-    console.error('SQL query error:', error);
-    throw error; // Det er vigtigt at håndtere fejl korrekt
+      console.error('Error fetching calories burned data:', error);
+      throw error;
+    }
   }
-}
 }
 
 // Eksporterer en instans af Database-klassen for at gøre den tilgængelig for andre dele af applikationen
