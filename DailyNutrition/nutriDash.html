@@ -8,44 +8,23 @@
     <link rel="stylesheet" href="nutriDash.css">
 </head>
 <body>
-     <div class="hoved">
-        <div class="hovedLogo">
-            <h1>NutriTracker</h1>
-            <img src="redApple.png" alt="logoApple" class="logoApple">
-        </div>
+    <div class="hoved">
+        <h1>NutriTracker</h1>
         <div class="hovedLinks">
             <a href="mealCreator.html">Meal Creator</a>
             <a href="mealTracker.html">Meal Tracker</a>
-            <a href="activityTracker.html" class="active">Activity Tracker</a>
-            <a href="myProfile.html" class="active">Min Profil</a>
+            <a href="activityTracker.html">Activity Tracker</a>
+            <a href="myProfile.html">My Profile</a>
             <a href="nutriDash.html" class="active">Daily Nutri</a>
         </div>
     </div>
-        <div id="dashboard">
-            <div class="card">
-                <h4>Energy Intake</h4>
-                <p id="energy-today">0 kcal</p>
-            </div>
-            <div class="card">
-                <h4>Water Intake</h4>
-                <p id="water-today">0 L</p>
-            </div>
-            <div class="card">
-                <h4>Calories Burned</h4>
-                <p id="calories-burned">0 kcal</p>
-            </div>
-            <div class="card">
-                <h4>Caloric Balance</h4>
-                <p id="caloric-balance">0 kcal</p>
-            </div>
-            <div>
-                <label for="viewType">View Type:</label>
-                <select id="viewType">
-                    <option value="daily">Daily</option>
-                    <option value="monthly">Monthly</option>
-                </select>
-            </div>
-        </div>
-        <script src="nutriDash.js"></script>
+    <div id="dashboard">
+        <select id="viewType">
+            <option value="daily">Daglig</option>
+            <option value="monthly">Månedlig</option>
+        </select>
+        <table id="data-table"></table>
+    </div>
+    <script src="nutriDash.js"></script>
 </body>
 </html>
