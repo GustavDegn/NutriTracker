@@ -2,6 +2,8 @@ body, html {
     font-family: 'Nunito', sans-serif;
     background: url('bølgen.png'); 
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
 }
 
 .hoved {
@@ -9,6 +11,8 @@ body, html {
     align-items: center;
     background: url('bølgen.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
     padding: 30px;
 }
 
@@ -43,5 +47,11 @@ body, html {
 .hovedLinks a {
     text-decoration: none;
     color: #9E9E9E;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+.hovedLinks a:hover {
+    color: #91c789; 
 }
 
